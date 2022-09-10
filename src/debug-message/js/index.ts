@@ -61,7 +61,7 @@ export class JSDebugMessage extends DebugMessage {
       logMessagePrefix = `${delemiterInsideMessage} `;
     }
     const debuggingMsg = `${
-      logFunction !== 'log' ? logFunction : `console.${logType}`
+      logFunction !== 'log' ? logFunction : `System.${logType}`
     }(${quote}${logMessagePrefix}${
       logMessagePrefix.length !== 0 &&
       logMessagePrefix !== `${delemiterInsideMessage} `
@@ -87,8 +87,8 @@ export class JSDebugMessage extends DebugMessage {
         : ''
     }${selectedVar}${quote}, ${selectedVar})${semicolon}`;
     if (wrapLogMessage) {
-      // 16 represents the length of console.log("");
-      const wrappingMsg = `console.${logType}(${quote}${logMessagePrefix} ${'-'.repeat(
+      // 16 represents the length of System.log("");
+      const wrappingMsg = `System.${logType}(${quote}${logMessagePrefix} ${'-'.repeat(
         debuggingMsg.length - 16,
       )}${logMessagePrefix}${quote})${semicolon}`;
       textEditor.insert(
